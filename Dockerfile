@@ -23,8 +23,11 @@ VOLUME /config
 RUN cp /opt/xmrig-proxy/src/config.json /config/config.json
 
 # Ports
-EXPOSE 80 7777
+EXPOSE 80 3333
+
+# Entrypoint
+ENTRYPOINT ["/opt/xmrig-proxy/build/xmrig-proxy"]
 
 # Command
-CMD ["/opt/xmrig-proxy/build/xmrig-proxy", "-c", "/config/config.json"]
+CMD ["-c", "/config/config.json"]
 
